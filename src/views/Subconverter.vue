@@ -1065,7 +1065,7 @@ export default {
       let data = new FormData();
       data.append("long_url", btoa(this.customSubUrl));
       if (this.customShortSubUrl.trim() != "") {
-        data.append("shortKey", this.customShortSubUrl.trim().indexOf("http") < 0 ? this.customShortSubUrl.trim() : "");
+        data.append("short_code", this.customShortSubUrl.trim().indexOf("http") < 0 ? this.customShortSubUrl.trim() : "");
       }
       this.$axios
         .post(duan, data, {
@@ -1318,6 +1318,7 @@ export default {
   }
 };
 </script>
+
 
 
 
