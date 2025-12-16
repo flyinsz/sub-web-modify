@@ -1059,25 +1059,29 @@ export default {
     makeShortUrl() {
       let duan =
         this.form.shortType === ""
-          ? shortUrlBackend
+          ? this.form.customBackend.replace(/\/+$/, "") + "/api/add"
           : this.form.shortType;
+          
       this.loading1 = true;
-      let data = new FormData();
-      data.append("long_url", btoa(this.customSubUrl));
-      if (this.customShortSubUrl.trim() != "") {
-        data.append("short_code", this.customShortSubUrl.trim().indexOf("http") < 0 ? this.customShortSubUrl.trim() : "");
+
+      let postData = {
+        long_url: this.customSubUrl
+      };
+
+      if (this.customShortSubUrl && this.customShortSubUrl.trim() != "") {
+        let code = this.customShortSubUrl.trim();
+        postData.short_code = code.indexOf("http") < 0 ? code : "";
       }
+
       this.$axios
-        .post(duan, data, {
-          header: {
-            "Content-Type": "application/form-data; charset=utf-8"
-          }
-        })
+        .post(duan, postData)
         .then(res => {
-          if (res.data && res.data.short_url) {
-            this.customShortSubUrl = res.data.short_url;
+          if (res.data && res.data.data && res.data.data.short_url) {
+            this.curShortAddress = res.data.data.short_url;
+            this.customShortSubUrl = res.data.data.short_url;
+            
             this.$copyText(this.curShortAddress);
-            this.$message.success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）");
+            this.$message.success("短链接已复制到剪贴板");
           } else {
             this.$message.error("短链接获取失败：后端接口返回异常");
           }
@@ -1318,6 +1322,7 @@ export default {
   }
 };
 </script>
+
 
 
 
