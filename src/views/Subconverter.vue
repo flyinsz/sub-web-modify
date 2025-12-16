@@ -333,10 +333,6 @@ export default {
         },
         shortTypes: {
           "pawsfree.com": "https://cvt.pawsfree.com/api/add",
-          "v1.mk": "https://v1.mk/short",
-          "d1.mk": "https://d1.mk/short",
-          "dlj.tf": "https://dlj.tf/short",
-          "suo.yt": "https://suo.yt/short",
         },
         customBackend: {
           "Donny反代后端【vless reality+hy1+hy2】": "https://cvt.pawsfree.com",
@@ -1067,7 +1063,7 @@ export default {
           : this.form.shortType;
       this.loading1 = true;
       let data = new FormData();
-      data.append("longUrl", btoa(this.customSubUrl));
+      data.append("long_url", btoa(this.customSubUrl));
       if (this.customShortSubUrl.trim() != "") {
         data.append("shortKey", this.customShortSubUrl.trim().indexOf("http") < 0 ? this.customShortSubUrl.trim() : "");
       }
@@ -1078,12 +1074,12 @@ export default {
           }
         })
         .then(res => {
-          if (res.data.Code === 1 && res.data.ShortUrl !== "") {
-            this.customShortSubUrl = res.data.ShortUrl;
-            this.$copyText(res.data.ShortUrl);
+          if (res.data && res.data.data && res.data.data.short_url) {
+            this.customShortSubUrl = res.data.data.short_url;
+            this.$copyText(this.curShortAddress);
             this.$message.success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）");
           } else {
-            this.$message.error("短链接获取失败：" + res.data.Message);
+            this.$message.error("短链接获取失败：后端接口返回异常");
           }
         })
         .catch(() => {
@@ -1322,6 +1318,7 @@ export default {
   }
 };
 </script>
+
 
 
 
