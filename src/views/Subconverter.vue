@@ -794,9 +794,9 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
-        shortType: "https://v1.mk/short",
-        remoteConfig: "https://raw.githubusercontent.com/cmliu/ACL4SSR/main/Clash/config/ACL4SSR_Online.ini",
+        customBackend: this.getUrlParam() == "" ? "https://cvt.pawsfree.com" : this.getUrlParam(),
+        shortType: "https://cvt.pawsfree.com/api/add",
+        remoteConfig: "https://raw.githubusercontent.com/flyinsz/ACL4SSR-cmliu/refs/heads/main/Clash/config/Donny.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -1318,6 +1318,7 @@ export default {
   }
 };
 </script>
+
 
 
 
