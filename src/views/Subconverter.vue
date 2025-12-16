@@ -1074,8 +1074,8 @@ export default {
           }
         })
         .then(res => {
-          if (res.data && res.data.data && res.data.data.short_url) {
-            this.customShortSubUrl = res.data.data.short_url;
+          if (res.data && res.data.short_url) {
+            this.customShortSubUrl = res.data.short_url;
             this.$copyText(this.curShortAddress);
             this.$message.success("短链接已复制到剪贴板（IOS设备和Safari浏览器不支持自动复制API，需手动点击复制按钮）");
           } else {
@@ -1318,6 +1318,7 @@ export default {
   }
 };
 </script>
+
 
 
 
