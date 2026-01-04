@@ -796,7 +796,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://cvt.pawsfree.com" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://subapi.pidio.com" : this.getUrlParam(),
         shortType: "https://cvt.pawsfree.com/api/add",
         remoteConfig: "https://raw.githubusercontent.com/flyinsz/ACL4SSR-cmliu/refs/heads/main/Clash/config/Donny.ini",
         excludeRemarks: "",
@@ -1324,6 +1324,7 @@ export default {
   }
 };
 </script>
+
 
 
 
