@@ -335,6 +335,7 @@ export default {
           "pawsfree.com": "https://cvt.pawsfree.com/api/add",
         },
         customBackend: {
+          "Donny专用后端【vless reality+hy1+hy2】": "https://subapi.pidio.com",
           "Donny反代后端【vless reality+hy1+hy2】": "https://cvt.pawsfree.com",
           "CM负载均衡后端【vless reality+hy1+hy2】": "https://subapi.cmliussss.net",
           "CM应急备用后端【vless reality+hy1+hy2】": "https://subapi.fxxk.dedyn.io",
@@ -345,6 +346,7 @@ export default {
           "sub-web作者提供": "https://api.wcc.best",
         },
         backendOptions: [
+          { value: "https://subapi.pidio.com" },
           { value: "https://cvt.pawsfree.com" },
           { value: "https://subapi.cmliussss.net" },
           { value: "https://subapi.fxxk.dedyn.io" },
@@ -1322,6 +1324,7 @@ export default {
   }
 };
 </script>
+
 
 
 
