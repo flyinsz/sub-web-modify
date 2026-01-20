@@ -361,6 +361,10 @@ export default {
             label: "DONNY规则",
             options: [
               {
+                label: "Donny自用规则 简化 故障转移 优选",
+                value: "https://raw.githubusercontent.com/flyinsz/ACL4SSR-cmliu/refs/heads/main/Clash/config/Donny_s.ini"
+              },
+              {
                 label: "Donny自用规则 国家分组 AI",
                 value: "https://raw.githubusercontent.com/flyinsz/ACL4SSR-cmliu/refs/heads/main/Clash/config/Donny.ini"
               }
@@ -1324,6 +1328,7 @@ export default {
   }
 };
 </script>
+
 
 
 
